@@ -5,12 +5,21 @@ from django.http import JsonResponse
 from rest_framework.decorators import APIView
 from rest_framework.response import Response
 
+from . import serializers
+from . import models
+
 # Create your views here.
 class TestView(APIView):
-    def get(self,request,*args,**kwargs):
+    def get(self,request):
         data={
             'name':'Aabid',
             'age':22,
             'city':'Delhi'
         }
         return Response(data)
+    
+    def post(self,request):
+        serializer = serializers.Testserializer(data=request.data)
+        serializer.is_valid()
+        serializer.save()
+        return Response(serializer.data)
