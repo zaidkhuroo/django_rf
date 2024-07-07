@@ -1,11 +1,11 @@
-from . import models
+# from . import models
+from . models  import Post
 from rest_framework import serializers
 
-class Testserializer(serializers.ModelSerializer):
-    def get(self, request):
-        class Meta:
-            model = models.Post
-            fields = {
-                'title','description'
-            }
+class TestSerializer(serializers.ModelSerializer):
+    class Meta:
+            model = Post
+            fields = [
+                'title','description','owner'
+            ]
               
