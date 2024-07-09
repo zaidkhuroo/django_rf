@@ -23,5 +23,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('',include('rf_app.urls')),
     path('api/token/', obtain_auth_token
-         , name='obtain-token'),
+         , name='obtain-token'), # path added to authenticate the user
 ]
