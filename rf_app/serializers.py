@@ -6,6 +6,6 @@ class TestSerializer(serializers.ModelSerializer):
     class Meta:
             model = Post
             fields = [
-                'title','description','owner'
+                'title','description','owner','verified'
             ]
               
